@@ -1,0 +1,129 @@
+<div class="bg-move"></div>
+<div class="container">
+
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="cloud bg-white">
+		    	<p>
+		    		Hay muchos factores que pueden afectar el rendimiento en la presentación de pruebas o exámenes. Estos pueden ser condiciones personales, medioambientales o sociales que terminan produciendo estrés, que es una sensación de tensión física o emocional.
+		    	</p>
+		    	<p>
+		    		A continuación, se presentan algunas recomendaciones generales que pueden ayudarlo a superar estos factores, con el fin de evitar el estrés. Son recomendaciones simples pero muy efectivas, si se consideran en las diferentes etapas de la presentación de pruebas o exámenes (antes, durante y después de la evaluación).
+		    	</p>
+		    	<p><a class="btn btn-primary center-block" ng-click="seeRecommendations()">Ver Recomendaciones</a></p>
+			</div> 
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-8 col-xs-12">
+			<div class="btn-test">
+				<a style="cursor: pointer;" ng-click="showGame()"><span></span> ¡Relájate y juega!</a>
+			</div>
+		</div>
+		<div class="col-sm-4 col-xs-12">
+			<div class="character">
+				<img src="src/images/pj-manejo-estres.png" alt="Smiley face">
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+
+				<div class="content-tabs">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active">
+							<a href="#/manejoEstres#group1" role="tab" data-toggle="tab" style="font-size: 1.3rem;">{{ recommendations.nombres_grupo.grupo_uno }}</a>
+						</li>
+						<li>
+							<a href="#/manejoEstres#group2" role="tab" data-toggle="tab" style="font-size: 1.3rem;">{{ recommendations.nombres_grupo.grupo_dos }}</a>
+						</li>
+						<li>
+							<a href="#/manejoEstres#group3" role="tab" data-toggle="tab" style="font-size: 1.3rem;">{{ recommendations.nombres_grupo.grupo_tres }}</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+
+						<div role="tabpanel" class="tab-pane active" id="group1">
+							<div class="panel" ng-repeat="(key, recommendation) in recommendations.grupo_uno">
+								<h2>{{ key + 1 }}. {{ recommendation.nombre }}</h2>
+								<p>
+									{{ recommendation.descripcion }}
+								</p>
+							</div>
+							<div class="alert alert-info text-center" ng-if="recommendations.grupo_uno.length == 0">
+								<i class="fa fa-info-circle"></i> No se encontraron recomendaciones
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="group2">
+							<div class="panel" ng-repeat="(key, recommendation) in recommendations.grupo_dos">
+								<h2>{{ key + 1 }}. {{ recommendation.nombre }}</h2>
+								<p>
+									{{ recommendation.descripcion }}
+								</p>
+							</div>
+							<div class="alert alert-info text-center" ng-if="recommendations.grupo_dos.length == 0">
+								<i class="fa fa-info-circle"></i> No se encontraron recomendaciones
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="group3">
+							<div class="panel" ng-repeat="(key, recommendation) in recommendations.grupo_tres">
+								<h2>{{ key + 1 }}. {{ recommendation.nombre }}</h2>
+								<p>
+									{{ recommendation.descripcion }}
+								</p>
+							</div>
+							<div class="alert alert-info text-center" ng-if="recommendations.grupo_tres.length == 0">
+								<i class="fa fa-info-circle"></i> No se encontraron recomendaciones
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalGame" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="viewGame = !viewGame" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="panel ng-scope">
+					<div class="bg-container-game">
+						<div class="container-game">
+							<iframe src="/game2/index.html" style="width: 100%;height: 100%;"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

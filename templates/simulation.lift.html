@@ -1,0 +1,59 @@
+<div class="bg-move"></div>
+<div class="container top" style="padding-top: 50px !important;">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="cloud bg-white pull-right">
+				<h1>Antes de iniciar la grabación</h1>
+				<p>
+					Aquí usted tendrá usted dos opciones, una la de grabar su argumentación, haciendo clic en iniciar grabación para autoevaluarse el final (opción recomendada). La otra de usar algunas de las herramientas de terceros externas a este recurso haciendo clic en ver herramientas sugeridas.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="character lift">
+				<img src="src/images/pj-simulacion-03.png" alt="Smiley face" style="transform: rotatey(180deg)">
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+
+			<div style="margin-top: 100px;">
+				<div class="col-sm-6 col-xs-12" style="margin-bottom: 2rem;">
+					<div class="btn-icon btn-record"><a style="cursor: pointer;" ng-click="startRecordVideo()"><span></span> Iniciar grabación</a></div>
+				</div>
+				<div class="col-sm-6 col-xs-12">
+					<div class="btn-icon btn-tools"><a style="cursor: pointer" ng-click="seeTools()"><span></span> Ver herramientas sugeridas</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="panel ng-scope">
+					<div class="content-tools">
+						<h2> Herramientas Sugeridas </h2>
+						<div class="row" ng-repeat="(key, tool) in toolsBox">
+							<div class="col-sm-2"><img src="src/images/main/icons/icon-tool.png" alt="{{ tool.nombre }}"></div>
+							<div class="col-sm-10"><p><a href="{{ tool.enlace }}" target="_blank">{{ tool.nombre }}<br>{{ tool.enlace }}</a></p></div>
+						</div>
+						<div class="alert alert-info text-center" ng-if="toolsBox.length == 0">
+							<i class="fa fa-info-circle"></i> No se encontraron herramientas
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+<div class="bg-move"></div>
+<div class="container" ng-controller="gameWordsCtrl">
+	<div class="container-instruction-game">
+		<div ng-if="view.first">
+			<div class="row">
+	    		<div class="col-sm-8">
+			    	<div class="cloud bg-white">
+			    		<h2> Instrucciones </h2>
+			        	<p> Arrastra la respuesta correcta hacia el cuadro rojo.</p>
+		        	</div>
+	    		</div>
+	    		<div class="col-sm-4"></div>
+    		</div>
+    		<div class="row">
+	    		<div class="col-sm-5">
+					<div class="options-answer">
+						<div class="icon-option"></div>		    					
+						<p><span>A.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper est vel fringilla tincidunt.</p>
+					</div>
+	    		</div>
+	    		<div class="col-sm-7">
+					<div class="item-answer">
+						<div class="arrow-answer"></div>
+						<p>Arrastra tu respuesta aquí</p>
+					</div>
+	    		</div>
+			</div>
+    		<div class="row">
+	        	<div class="character">
+	        		<img src="src/images/pj-herramientas-01.png" alt="" style="transform: scaleX(-1);">
+	        	</div>	
+    		</div>
+			<div class="row">
+	    		<div class="col-sm-12">
+	    			<div class="btn-icon btn-start center-block" style="margin: 50px auto 0;"><a style="cursor: pointer" ng-click="changeView()"><span></span>Empezar</a></div>
+	    		</div>
+    		</div>
+		</div>
+		<div ng-if="view.second">
+			<div class="contentCar">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="panel panel-warning question">
+							<h2 infoquestion="{{ currentQuestion.pregunta | json }}"><b>{{ numQuestion + 1 }}/{{ totalAnswers }}</b> {{ currentQuestion.pregunta.pregunta }}</h2>
+						</div>
+						<div class="containerAnswers">
+							<div class="">
+								<ul style="padding: 0">
+									<div ng-repeat="(key, answer) in currentQuestion.respuestas" class="col-sm-12 ref">
+										<div class="options-answer answer" infoanswer="{{ answer | json }}">
+											<div class="icon-option" style="left: -13px;"></div>		    					
+											<p> 
+												<span ng-if="key == 0">A. </span>
+												<span ng-if="key == 1">B. </span>
+												<span ng-if="key == 2">C. </span>
+												<span ng-if="key == 3">D. </span>
+												{{ answer.nombre }}
+											</p>
+										</div>
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="answerValidation cloud-answer" ng-class="{ 'active': validationStateCloud }">
+							<h2 ng-class="{ 'text-danger': !validationAnswer, 'text-success': validationAnswer }">
+								{{ messageValidation }}
+							</h2>
+							<button ng-if="stateNextQuestion" class="btn btn-validator-answer" ng-class="{ 'btn-danger': !validationAnswer, 'btn-success': validationAnswer }" ng-click="nextQuestion()">Ir a la siguiente pregunta</button>
+							<button ng-if="stateEndQuestion" class="btn" ng-class="{ 'btn-danger': !validationAnswer, 'btn-success': validationAnswer }" ng-click="changeViewThird()">Terminar</button>
+						</div>
+						<div class="col-sm-12">
+							<div class="item-answer">
+								<div class="arrow-answer"></div>
+								<p>Arrastra tu respuesta aquí</p>
+							</div>
+						</div>			
+					</div>
+				</div>
+				<div class="row">
+		        	<div class="character" style="margin-left: inherit;margin-top: inherit;transform: rotatey(180deg);position: absolute;bottom: 2rem;right: 8rem;">
+		        		<img src="src/images/pj-herramientas-01.png" alt="" style="transform: scaleX(-1);">
+		        	</div>	
+	    		</div>
+			</div>
+		</div>
+		<div ng-if="view.third" class="text-center">
+			<div class="text-cente cloud bg-white" style="width: 545px;padding: 30px 60px 20px 60px;margin: 0;margin-left: 19rem;max-width: 100%;">
+				<h1>
+					Obtuviste 
+					{{ total.corrects }} 
+					<span ng-if="total.corrects == 1">respuesta buena</span>
+					<span ng-if="total.corrects > 1 || total.corrects == 0">respuestas buenas</span>
+					<br>
+					y 
+					{{ total.incorrects }}
+					<span ng-if="total.incorrects == 1">respuesta mala...</span>
+					<span ng-if="total.incorrects > 1 || total.incorrects == 0">respuestas malas...</span> 
+				</h1>
+				<div ng-if="total.corrects > total.incorrects">
+					<h3>¡Felicitaciones!</h3>
+					<button class="btn btn-warning" type="button" ng-click="reloadGame()">Volver a jugar</button>
+				</div>
+				<div ng-if="total.incorrects > total.corrects">
+					<button class="btn btn-warning" type="button" ng-click="seeAgainRecommendations()">Te recomendamos leer nuevamente las recomendaciones</button>
+				</div>
+				<div ng-if="total.incorrects == total.corrects">
+					<h4>Tuviste las mismas preguntas correctas e incorrectas</h4>
+					<button class="btn btn-warning" type="button" ng-click="seeAgainRecommendations()">Te recomendamos leer nuevamente las recomendaciones</button>
+				</div>
+				<div>
+					Total Preguntas: {{ totalAnswers }}
+				</div>
+			</div>
+			<div class="row">
+	        	<div class="character" style="margin-left: 0;margin-top: -134px;">
+	        		<img src="src/images/pj-herramientas-01.png" alt="" style="transform: scaleX(-1);">
+	        	</div>	
+    		</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.answer{
+		z-index: 2;
+		list-style-type: none;
+	}
+	.answer:not(.ui-draggable-disabled){
+		cursor: move;
+	}
+	.answer.ui-draggable-disabled{
+		cursor: not-allowed;
+	}
+	.answer.ui-draggable-dragging{
+		opacity: .8 !important;
+	}
+	.answerValidation{
+		min-height: 151px;
+		margin-bottom: 1rem;
+	}
+	.ref{ margin-bottom: .5rem; }
+	.ref.active{
+		background: rgba(0,0,0,.1);
+		border: 2px dotted rgb(130,130,130);
+	}
+	.item-answer{
+		transition: all 300ms ease;
+	}
+	.item-answer.active{
+		opacity: .85;
+	}
+</style>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

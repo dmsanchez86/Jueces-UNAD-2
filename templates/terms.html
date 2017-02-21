@@ -1,0 +1,78 @@
+<div class="bg-move"></div>
+<div class="container" ng-if="validateSessionState">
+	<div class="cloud pull-right">
+    	<h1>Términos y Condiciones de Uso</h1>
+    	<div class="containerTextTerms"> 
+    		<h2>PARA EL USO DEL RECURSO DE PRÁCTICA DE LA EVALUCIÓN ORAL</h2>
+			<p>
+				La Escuela Judicial “Rodrigo Lara Bonilla” informa que el recurso educativo digital interactivo de práctica de la evaluación oral, es una herramienta de apoyo que permite a los discentes simular la evaluación oral, que la cual incluye los dos módulos de cada mesa, mediante un  teórico-práctico e integrado-integrador.
+			</p>
+			<p>
+				Características:
+			</p>
+			<ul>
+				<li>
+					El objetivo del recurso es que los discentes puedan practicar o simular y, por ende, afianzar los conocimientos y habilidades buscadoas con el estudio de los módulos.
+				</li>
+				<li>
+					El uso del recurso queda a la entera voluntad del discente. No es de uso obligatorio.
+				</li>
+				<li>
+					<b>No es una actividad evaluable</b>, por lo que no se otorga puntaje para el proceso de evaluación por su realización.
+				</li>
+				<li>
+					No genera interacciones ni realimentaciones o recomendaciones por parte de los formadores o tutores.
+				</li>
+			</ul>
+			<h2>DECLARACIÓN</h2>
+			<p>
+				Mediante la presente declaración, manifiesto:
+			</p>
+			<ul>
+				<li>
+					Que conozco y acepto las condiciones establecidas en el Acuerdo PSAA16-10534 del 24 de junio de 2016, por medio del cual se adopta el Acuerdo Pedagógico que regirá el desarrollo del “VII Curso de Formación Judicial Inicial para Jueces y Magistrados de la República en todas las especialidades”, Promoción 2016-2017.
+				</li>
+				<li>
+					Que siendo que tanto la herramienta como la información contenida en ella, es de carácter educativo, me obligo a no utilizarlas para la realización de actividades diferentes a las académicas y a las contrarias a las leyes, la moral, el orden público y, en general, acepto hacer de ellas uso conforme a las presentes condiciones.
+				</li>
+				<li>
+					Que el uso inadecuado que se le dé a la información, es responsabilidad exclusiva de quien lo realiza, sin que pueda responsabilizarse a la Escuela Judicial “Rodrigo Lara Bonilla” de los daños o perjuicios que pudieran derivarse de dicho acceso o uso de la información, a su voluntad.
+				</li>
+				<li>
+					Que este recurso virtual y su contenido son propiedad de la Escuela Judicial “Rodrigo Lara Bonilla”, y que todos sus derechos son reservados.
+				</li>
+				<li>
+					Que está prohibida la redistribución o reproducción total o parcial del recurso o sus contenidos.
+				</li>
+				<li>
+					Que única y exclusivamente está permitida la descarga de archivos a disco duro y su impresión, para uso personal.
+				</li>
+				<li>
+					Que no está permitida la distribución comercial, ni puede transmitirse ni almacenarse en otro sitio WEB ni sistema electrónico de de información, ni el recurso ni sus contenidos.
+				</li>
+			</ul>
+		</div>
+		<div class="text-center">
+			<div>
+				<label>
+					<input type="checkbox" ng-model="r.validateTerms" id="checkTerms"> Aceptar los términos y condiciones
+				</label>
+			</div>
+			<button class="btn btn-primary" type="submit" ng-click="acceptTerms()">Aceptar</button>
+		</div>
+	</div>
+	<div class="character">
+		<img src="src/images/pj-terminos.png" alt="Término y condiciones">
+	</div>
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

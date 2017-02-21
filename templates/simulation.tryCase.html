@@ -1,0 +1,62 @@
+<div class="bg-move"></div>
+<div class="modal in" style="display: block;z-index: 0;" ng-if="!readCase">
+	<div class="modal-dialog" style="margin-top: 15rem;">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="contain-btn-time">
+					<div class="btn-time" style="margin-left: 80px;">
+						<big ng-if="loadCorrectly">
+							<b>
+								<timer interval="1000" countdown="selectCase.tiempoPreparacion">
+								<!-- <timer interval="1000" countdown="3"> -->
+									<!--<div class="text-center"><big>Progreso {{progressBar}}%</big></div>-->
+									<b>00:{{minutes}}:{{seconds}}</b>
+									<div class="progress" style="height: 8px;margin: 0">
+									    <div class="progress-bar progress-bar-striped active"
+									    	ng-class="{ 'progress-bar-success': progressBar >= 0 && progressBar <= 49, 'progress-bar-warning': progressBar >= 50 && progressBar <= 79, 'progress-bar-danger': progressBar >= 80 }"
+											role="progressbar"
+											aria-valuenow="20"
+											aria-valuemin="0"
+											aria-valuemax="100"
+											style="width: {{ progressBar }}%">
+									    </div>
+									</div>
+								</timer>
+							</b>
+						</big>
+					</div>
+				</div>
+				<iframe height="400" style="width: 100%;" ng-src="{{ selectCase.documento }}" onLoad="loadPDF()" frameborder="0" id="readCaseIframe" allowfullscreen></iframe>
+				<div class="text-center"><a style="cursor: pointer" class="btn btn-primary" ng-click="goToLift()"><span></span> Ir a sustentación del caso</a></div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body text-center" style="padding: 0">
+				<div class="panel ng-scope">
+					<div class="btn-time">
+						<img src="src/images/time-red.png" alt="Simulación">
+					</div>
+					<p class="big">Su tiempo ha terminado</p>
+					<div class="btn-icon btn-present"><a style="cursor: pointer" ng-click="goToLift()"><span></span> Ir a sustentación del caso</a></div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

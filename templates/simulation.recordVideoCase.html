@@ -1,0 +1,93 @@
+<div class="bg-move"></div>
+<div class="container" style="padding-top: 50px !important;">
+	<div class="container-video-time">
+
+		<div class="row">
+    		<div class="col-sm-8">
+		    	<div class="cloud bg-white no-triangle" ng-if="stateAudio">
+		        	<p>
+		        		Haga clic en “Active aquí las opciones de grabación” y luego en “inicie aquí su grabación” para iniciar, una vez termine saldrá un botón en este cuadro de diálogo para continuar y autoevaluarse. 
+		        	</p>
+		        	<button id="btnUpload" ng-if="completeRecord" ng-show="stateAudio" ng-click="uploadFileRecord()" class="btn btn-primary btn-block" style="margin-top: 1rem;text-align: center">Continuar <i class="fa fa-upload"></i></button>
+	        	</div>
+    		</div>
+    		<div class="col-sm-4" ng-if="stateAudio">
+	    		<div ng-if="startRecordVideoState" class="contain-btn-progress">
+	    			<div class="btn-time">
+	    				<span>{{ textVideo }}</span>
+			    		<timer interval="1000" countdown="300">
+							<div class="progress" style="height: 8px;margin: 0">
+							    <div class="progress-bar progress-bar-striped active"
+							    	ng-class="{ 'progress-bar-success': progressBar >= 0 && progressBar <= 80, 'progress-bar-danger': progressBar >= 80 }"
+									role="progressbar"
+									aria-valuenow="20"
+									aria-valuemin="0"
+									aria-valuemax="100"
+									style="width: {{ progressBar }}%">
+							    </div>
+							</div>
+						</timer>
+					</div>
+	    		</div>
+			</div>
+		</div>
+
+		<div class="row">
+    		<div class="col-sm-8">
+    			<div class="" ng-class="{ 'container-video-board': stateAudio }">
+    				<form id="formUpload" ng-class="{ 'videoFloat': !stateAudio }">
+						<video id="myVideo" class="video-js vjs-default-skin"></video>
+						<button id="btnRestart" ng-if="completeRecord" ng-click="restartVideo()" class="btn btn-primary btn-block" style="margin-top: 1rem;text-align: center">Volver a Grabar</button>
+					</form>
+    			</div>
+    		</div>
+    		<div class="col-sm-4">
+	        	<div class="character record-video" ng-if="stateAudio">
+	        		<img src="src/images/pj-simulacion-06.png" alt="Simulación">
+	        	</div>
+    		</div>
+		</div>
+
+		<div class="cloud bg-white pull-right cont-slider" ng-class="{ 'flat': !stateAudio }" ng-show="!stateAudio">
+			<div>
+				<div class="owl-carousel">
+					<div ng-repeat="(key, rubric) in rubrics" class="item">
+						<h2 class="text-center">{{ rubric.nombre }}</h2>
+						<p class="text-center" style="margin: 1rem 0;padding: 0 2.5rem;">{{ rubric.descripcion }}</p>
+						<div class="containerAnswers">
+							<div class="row">
+								<div class="col-md-6 text-center">
+									<label>
+										<input type="radio" id="rubric{{ key }}" name="answer{{ key + 1 }}" style="vertical-align: baseline;" ng-change="validateSteps(key)" ng-model="arrayRubrics[key].respuesta" value="1"> Sí lo hice
+									</label>
+								</div>
+								<div class="col-md-6 text-center">
+									<label>
+										<input type="radio" id="rubric{{ key }}{{ key + 1 }}" name="answer{{ key + 1 }}" style="vertical-align: baseline;" ng-change="validateSteps(key)" ng-model="arrayRubrics[key].respuesta" value="0"> No lo hice
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item text-center">
+						<h2 class="text-center">¡Terminaste!</h2>
+						<a style="cursor: pointer" class="btn btn-primary" ng-click="endRubric()">Continuar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

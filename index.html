@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="judgesApp">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jueces</title>
+
+    <!-- Humans -->
+    <link type="text/plain" rel="author" href="humans.txt"/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png?asdasd=123123" id="favicon">
+    
+    <!-- Loader Styles -->
+    <link href="src/css/loader.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- selectize -->
+    <link href="src/css/selectize.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- NProgress -->
+    <link rel="stylesheet" type="text/css" href="src/css/estilos_admin.css">
+    <link href="src/css/nprogress.css" rel="stylesheet">
+
+    <!-- video css -->
+    <link href="src/lib/video/video-js.min.css" rel="stylesheet">
+    <link href="src/lib/video/videojs.record.min.css" rel="stylesheet">
+    <link href="src/lib/video/style.css" rel="stylesheet">
+
+    <!-- owl carousel -->
+    <link href="src/lib/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="src/lib/owl-carousel/owl.theme.default.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="src/css/main.css" rel="stylesheet">
+
+    <style>
+        /* change player background color */
+        #myAudio {
+            background-color: #9FD6BA;
+        }
+
+        .no-authorized{ 
+            background-image: -webkit-radial-gradient(center, #df8d18,#9c5d05);
+            background-image: -moz-radial-gradient(center, #df8d18,#9c5d05);
+            background-image: -ms-radial-gradient(center, #df8d18,#9c5d05);
+            background-image: -o-radial-gradient(center, #df8d18,#9c5d05);
+            background-image: radial-gradient(center, #df8d18,#9c5d05);
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        .no-authorized:before{
+            position: absolute;
+            content:  '¡No Autorizado!';
+            color:  white;
+            font-size:  6vw;
+            text-shadow: 0 0 4px rgba(0,0,0,.5);
+            height: 0vh;
+        }
+        .no-authorized header, .no-authorized .bg-terms, .loader{ display: none; }
+    </style>
+  </head>
+  <body ng-controller="mainCtrl" ng-class="{ 'no-authorized': !validateSessionState }">
+    <!-- loader -->
+    <div class="loader">
+        <div>
+            <div>
+                <!-- <img src="src/images/admin-1.jpg"> -->
+            </div>
+            <div class="text-center">
+                <i class="fa fa-spinner fa-pulse fa-spin fa-3x"></i>
+            </div>
+        </div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <div ng-include="'templates/inc/header.html'"></div>
+    <!-- end header -->
+    <!-- ui view -->
+    <main class="main-content" ng-class="background" ui-view></main>
+    <!-- end ui view -->
+
+    <!-- Scripts Libraries -->
+    <script src="src/lib/jquery.js"></script>
+    <script src="src/lib/angular.js"></script>
+    <script src="src/lib/angular-ui-router.js"></script>
+    <script src="src/lib/angular-resource.js"></script>
+    <script src="src/lib/angular-breadcrumb.min.js"></script>
+    <script src="src/lib/angular-selectize.js"></script>
+    <script src="src/lib/angular-animate.min.js"></script>
+    <script src="src/lib/angular-timer.js"></script>
+    <script src="src/lib/ui-bootstrap-2.2.0.min.js"></script>
+    <script src="src/lib/ocLazyLoad.min.js"></script>
+    <script src="src/lib/notify.js"></script>
+    <script src="src/lib/jpages.min.js"></script>
+    <script src="src/js/config.js"></script>
+    
+    <!-- Controllers -->
+    <script src="src/js/controllers/mainCtrl.js"></script>
+    <script src="src/js/controllers/homeCtrl.js"></script>
+    <script src="src/js/controllers/recommendationsCtrl.js"></script>
+    <script src="src/js/controllers/stressManagementCtrl.js"></script>
+    <script src="src/js/controllers/termsCtrl.js"></script>
+    <script src="src/js/controllers/toolBoxCtrl.js"></script>
+    <script src="src/js/controllers/simulationCtrl.js"></script>
+    <script src="src/js/controllers/logoutCtrl.js"></script>
+
+    <!-- Filters -->
+    <script src="src/js/factories/filters.js"></script>
+    <script src="src/js/factories/factories.js"></script>
+
+    <!-- Routes -->
+    <script src="src/js/routes.js"></script>
+
+    <!-- Moment -->
+    <script src="src/lib/moment/moment.min.js"></script>
+
+    <!-- Humanize -->
+    <script src="src/lib/humanize-duration.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Selectize -->
+    <script src="src/lib/selectize.js"></script>
+
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+
+    <!-- video js -->
+    <script src="src/lib/video/video.min.js"></script>
+    <script src="src/lib/video/RecordRTC.js"></script>
+    <script src="src/lib/video/wavesurfer.min.js"></script>
+    <script src="src/lib/video/wavesurfer.microphone.min.js"></script>
+    <script src="src/lib/video/videojs.wavesurfer.min.js"></script>
+    <script src="src/lib/video/videojs.record.min.js"></script>
+
+    <!-- owl carousel -->
+    <script src="src/lib/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.js"></script>
+    <script>
+        $(function(){
+            setTimeout(function(){
+                $('.navbar-nav li a').click(function(){
+                    $('.navbar-nav li a').removeClass('active');
+                    $(this).addClass('active');
+
+                    // validamos si la pantalla es menor a 768
+                    if(window.innerWidth <= 768){ $('.navbar-toggle').click(); }
+                });
+                $('.navbar-brand.logo-header').click(function(){
+                    $('.navbar-nav li a').removeClass('active');
+
+                    // validamos si la pantalla es menor a 768
+                    if(window.innerWidth <= 768){ if($('.navbar-collapse').hasClass('in')){ $('.navbar-toggle').click(); } }
+                });
+            },1000);
+        });
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62994212-11', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

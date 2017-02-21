@@ -1,0 +1,25 @@
+.loader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999999;
+}
+.loader > div{
+	max-width: 300px;
+	max-height: 300px;
+	text-align: center;
+}
+.loader img{
+	max-width: 100%;
+}
+.loader i{
+	display: block;
+    color: #c2904a;
+    font-size: 4rem;
+}

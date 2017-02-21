@@ -1,0 +1,38 @@
+<div class="bg-move"></div>
+<div class="container">
+
+    <div class="col-sm-12">
+    	<div class="cloud bg-white pull-right">
+    		<h1>Bienvenido al recurso de Práctica de Evaluación Oral.</h1>
+        	<p>
+        		En este recurso usted podrá simular la Evaluación Oral de los módulos que componen la mesa de estudio. Su objetivo es permitirle llevar a cabo una práctica o simulación y, por ende, afianzar los conocimientos y habilidades buscadas con el estudio de los contenidos.
+        	</p>
+        	<p>
+        		Para esta práctica, usted contará con un espacio de simulación con casos similares a los de la evaluación oral, videos guía, herramientas de y guías de análisis del resultado de su práctica. También encontrará recomendaciones para la preparación del caso y su presentación.
+        	</p>
+        	<p>
+        		Se ofrece una caja de herramientas con el protocolo de presentación de la evaluación oral, la rúbrica de evaluación y casos ejemplificantes. Finalmente, usted cuenta con herramientas y consejos para la prevención y manejo del estrés.
+        	</p>
+        	<p>
+        		Todo esto permitirá que usted tenga éxito en su proceso de aprendizaje y como consecuencia logre excelentes resultados en su evaluación oral oficial.
+        	</p>
+    	</div>
+    </div>
+
+    <div class="col-sm-12">
+    	<div class="character">
+    		<img src="src/images/pj-home.png" alt="Home" style="transform: rotatey(180deg)">
+    	</div>
+    </div>
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

@@ -1,0 +1,27 @@
+{
+  "name": "jueces-app-2",
+  "version": "1.0.0",
+  "description": "Jueces App 2",
+  "main": "app.js",
+  "scripts": {},
+  "author": {
+    "name": "Daniel Mauricio Sanchez",
+    "twitter": "dmsanchez86",
+    "web": "http://dmsanchez86.github.io"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-ngdocs": "^0.2.10",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-imagemin": "^3.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^2.0.0"
+  }
+}

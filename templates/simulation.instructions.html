@@ -1,0 +1,54 @@
+<div class="bg-move"></div>
+<div class="container" style="padding-top: 50px !important;">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="cloud bg-white pull-right">
+				<div style="max-height: 300px;overflow-y: auto;">
+					<h1>Instrucciones</h1>
+					<p>
+						1. Usted cuenta con un tiempo de 20 minutos para realizar la lectura del caso. En este tiempo, además, podrá determinar la resolución del caso propuesto en la evaluación oral.
+					</p>
+					<p>
+						2. Finalizados estos 20 minutos, se desplegará una interfaz que le indica que podrá iniciar la grabación de práctica de su evaluación oral, la cual contará con un control de tiempo de 5 minutos. Su presentación debe tomar un mínimo de 3 minutos y máximo 5 minutos.
+					</p>
+					<p>
+						3. Luego de iniciado el proceso de grabación y pasados 4 minutos de ella, la herramienta le dará una alerta, indicándole que le queda 1 minuto del tiempo establecido. Al finalizar el tiempo, de nuevo le hará un llamado, indicándole ahora que el tiempo ha llegado a su fin.
+					</p>
+					<p>
+						4. Usted cuenta con un máximo de 5 intentos para hacer la grabación de la simulación de la evaluación oral. Recuerde que esto no es calificable y que no tendrá interacción ni realimentación de terceros en este proceso. 
+					</p>
+					<p>
+						5. Posterior a la grabación, usted podrá escuchar su grabación la y hacer el análisis de su resultado, comparando con la rúbrica de evaluación oral.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-7">
+			<div class="character">
+				<img src="src/images/pj-simulacion-03.png" alt="Smiley face">
+			</div>
+		</div>
+		<div class="col-sm-5">
+			<div class="btn-test">
+				<a ng-click="startCase()"><span></span> Empezar</a>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

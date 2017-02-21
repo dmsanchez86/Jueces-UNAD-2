@@ -1,0 +1,35 @@
+<div class="container">
+	<!-- Nav tabs -->
+	<div class="content-tabs-vertical">
+        <div class="col-xs-4">
+            <ul class="nav nav-tabs tabs-left">
+                <li ng-repeat="(key, case) in cases" ng-class="{ 'active': key == 0 }">
+                	<a style="cursor: pointer;" ng-click="seeCase(case, key, $event)" data-toggle="tab">
+                	{{ key + 1 }} <span>Caso {{ key + 1 }}</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-8">
+            <!-- Tab panes -->
+            <div class="tab-content" style="min-height: 330px;min-width: 454px;">
+                <div class="tab-pane" id="case{{ key + 1 }}" ng-repeat="(key, case) in cases" ng-class="{ 'active': key == 0 }">
+					<h2>Caso {{ key + 1 }}</h2>
+					<p class="ng-binding" style="min-height: 100px;">
+						{{ case.descripcion }}    
+					</p>
+					<div class="btn-icon btn-check">
+						<a style="cursor: pointer" ng-click="selectCaseToSee()">
+							<span></span> 
+							Seleccionar caso
+						</a>
+					</div>             
+				</div>
+            </div>
+        </div>
+	</div>
+	<!-- End Nav tabs -->
+
+	<div class="character">
+		<img src="src/images/pj-simulacion-02.png" alt="Simulación">
+	</div>
+</div>

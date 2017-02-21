@@ -1,0 +1,116 @@
+<div class="bg-move"></div>
+<div class="container">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="cloud bg-white">
+		    	<p>
+		    		Recuerde que este recurso ha sido diseñado para que usted realice prácticas de su evaluación oral, logrando así los objetivos prácticos del curso.
+		    	</p>
+		    	<p>
+		    		Por ello, aquí se le presentan unas recomendaciones pedagógicas y metodológicas, tanto para la preparación y estudio del caso, como para la presentación oral de su sustentación, con el fin de que aproveche al máximo esta herramienta.
+		    	</p>
+		    	<p><a class="btn btn-primary center-block" ng-click="seeRecommendations()">Ver Recomendaciones</a></p>
+			</div> 
+		</div>
+	</div>
+
+<div class="row">
+	<div class="col-sm-8">
+		<div class="btn-test">
+			<a href="#/recomendaciones/juego" ng-click="$parent.loader()"><span></span> Ponte a prueba</a>
+		</div>
+		
+	</div>
+	<div class="col-sm-4">
+		<div class="character">
+			<img src="src/images/pj-recomendaciones.png" alt="Smiley face">
+		</div>
+	</div>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="content-tabs">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active">
+							<a href="#/recomendaciones#group1" role="tab" data-toggle="tab" style="font-size: 1.15rem;padding: 2px 5px;">{{ recommendations.nombres_grupo.grupo_uno }}</a>
+						</li>
+						<li>
+							<a href="#/recomendaciones#group2" role="tab" data-toggle="tab" style="font-size: 1.15rem;padding: 2px 5px;">{{ recommendations.nombres_grupo.grupo_dos }}</a>
+						</li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+
+						<div role="tabpanel" class="tab-pane active" ng-class="{ 'active': key == 'grupo_uno' }" id="group1">
+							<div class="panel" ng-repeat="(key, recommendation) in recommendations.grupo_uno">
+								<h2>{{ key + 1 }}. {{ recommendation.nombre }}</h2>
+								<p>
+									{{ recommendation.descripcion }}
+								</p>
+							</div>
+							<div class="alert alert-info text-center" ng-if="recommendations.grupo_uno.length == 0">
+								<i class="fa fa-info-circle"></i> No se encontraron recomendaciones
+							</div>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="group2">
+							<div class="panel" ng-repeat="(key, recommendation) in recommendations.grupo_dos">
+								<h2>{{ key + 1 }}. {{ recommendation.nombre }}</h2>
+								<p>
+									{{ recommendation.descripcion }}
+								</p>
+							</div>
+							<div class="alert alert-info text-center" ng-if="recommendations.grupo_dos.length == 0">
+								<i class="fa fa-info-circle"></i> No se encontraron recomendaciones
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalGame" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" ng-click="destroyOwlCarousel()">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="owl-carousel" ng-if="stateGame">
+					<div class="item panel panel-default" ng-repeat="(key, question) in dataGame">
+						<h1>{{ question.pregunta.pregunta }}</h1>
+						<ul>
+							<li ng-repeat="(key, answer) in question.respuestas" ng-click="validateAnswer(question, answer)" style="cursor: pointer;margin-bottom: .5rem;">{{ answer.nombre }}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>

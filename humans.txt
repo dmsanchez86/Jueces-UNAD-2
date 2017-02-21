@@ -1,0 +1,16 @@
+JUECES APP 2
+----
+
+/* TEAM */
+  Title: Daniel Mauricio Sanchez
+  Site: http://dmsanchez86.github.io
+  Twitter: dmsanchez86
+  Location: Manizales, Colombia
+
+/* SITE */
+  Last Update: 17/11/2016
+  Standard: HTML5, CSS3, ANGULAR JS
+  Components: jQuery, SASS, Bootstrap
+
+/* THANKS */
+  Name: Pavel Osorio

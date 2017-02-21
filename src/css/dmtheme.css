@@ -1,0 +1,37 @@
+body{
+	background-color: #ddd;
+	background-color: -webkit-linear-gradient(45deg, #eee, #ccc);
+	background-color: -moz-linear-gradient(45deg, #eee, #ccc);
+	background-color: linear-gradient(45deg, #eee, #ccc);
+}
+
+a{
+	color:  #323232 ;
+	text-shadow:  0 0 1px rgba(30,30,30,.15) !important;
+}
+a:hover{
+	color:  #111;
+}
+
+.nav-list > li > a{
+	padding:  .5rem .65rem;
+}
+.nav-list > li > a:hover{
+	background-color: transparent;
+}
+
+.nav-list > .active > a, .nav-list > .active > a:hover, .nav-list > .active > a:focus {
+    color: #111;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fbc408;
+}
+
+ul.methods > li > h3{
+    background-color: #fbc408;
+}
+
+ul.methods > li, ul.properties > li, ul.events > li {
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+}

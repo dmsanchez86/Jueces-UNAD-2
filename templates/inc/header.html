@@ -1,0 +1,32 @@
+<header>
+    <nav class="navbar navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header" ng-if="validateSessionState">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" ng-if="acceptTerms">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>				
+				<a class="navbar-brand logo-header" href="#/home" ng-click="$parent.loader()" ng-if="acceptTerms"></a>
+				<a class="navbar-brand logo-header" href="#/" ng-click="$parent.loader()" ng-if="!acceptTerms"></a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse" ng-if="acceptTerms">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#/simulacion" ng-click="$parent.loader()">Simulación</a>
+					</li>
+					<li>
+						<a href="#/recomendaciones" ng-click="$parent.loader()">Recomendaciones</a>
+					</li>
+					<li>
+						<a href="#/cajaHerramientas" ng-click="$parent.loader()">Caja de herramientas</a>
+					</li>
+					<li>
+						<a href="#/manejoEstres" ng-click="$parent.loader()">Manejo del estrés</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+    </nav>
+</header>
