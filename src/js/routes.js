@@ -39,144 +39,33 @@ angular
             }
         }
     ).state(
-        'simulacion',
+        'mapaProceso',
         {
-            url: '/simulacion',
-            templateUrl: '/templates/simulation.html',
-            controller: 'simulationCtrl',
+            url: '/mapaProceso',
+            templateUrl: '/templates/processMap.html',
+            controller: 'processMapCtrl',
             ncyBreadcrumb: {
-                label: 'Simulación'
+                label: 'Mapa de Proceso'
             }
         }
     ).state(
-        'simulacion/caso',
+        'ejemplos',
         {
-            url: '/simulacion/caso',
-            templateUrl: '/templates/simulation.case.html',
-            controller: 'simulationCtrl',
+            url: '/ejemplos',
+            templateUrl: '/templates/examples.html',
+            controller: 'examplesCtrl',
             ncyBreadcrumb: {
-                label: 'Caso',
-                parent: 'simulacion'
+                label: 'Ejemplos'
             }
         }
     ).state(
-        'simulacion/caso/maneraCorrecta',
+        'lineaJurisprudencial',
         {
-            url: '/simulacion/caso/maneraCorrecta',
-            templateUrl: '/templates/simulation.correctWayCase.html',
-            controller: 'simulationCtrl',
+            url: '/lineaJurisprudencial',
+            templateUrl: '/templates/lineJ.html',
+            controller: 'lineJCtrl',
             ncyBreadcrumb: {
-                label: 'Manera Correcta',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/caso/maneraIncorrecta',
-        {
-            url: '/simulacion/caso/maneraIncorrecta',
-            templateUrl: '/templates/simulation.incorrectWayCase.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Manera Incorrecta',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/instrucciones',
-        {
-            url: '/simulacion/instrucciones/:idCase',
-            templateUrl: '/templates/simulation.instructions.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Instrucciones',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/sustentacion',
-        {
-            url: '/simulacion/sustentacion/:idCase',
-            templateUrl: '/templates/simulation.lift.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Seleccionado',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/caso/leer',
-        {
-            url: '/simulacion/caso/leer',
-            templateUrl: '/templates/simulation.tryCase.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Leer',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/caso/grabarVideo',
-        {
-            url: '/simulacion/caso/grabarVideo',
-            templateUrl: '/templates/simulation.recordVideoCase.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Grabar',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/caso/rubrica',
-        {
-            url: '/simulacion/caso/rubrica',
-            templateUrl: '/templates/simulation.rubric.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Rubrica',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/caso/video',
-        {
-            url: '/simulacion/caso/video',
-            templateUrl: '/templates/simulation.showVideoCase.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Video Grabado',
-                parent: 'simulacion/caso'
-            }
-        }
-    ).state(
-        'simulacion/fin',
-        {
-            url: '/finSimulacion',
-            templateUrl: '/templates/simulation.end.html',
-            controller: 'simulationCtrl',
-            ncyBreadcrumb: {
-                label: 'Fin Simulación',
-                parent: 'simulacion'
-            }
-        }
-    ).state(
-        'recomendaciones',
-        {
-            url: '/recomendaciones',
-            templateUrl: '/templates/recommendations.html',
-            controller: 'recommendationsCtrl',
-            ncyBreadcrumb: {
-                label: 'Recomendaciones'
-            }
-        }
-    ).state(
-        'recomendaciones/juego',
-        {
-            url: '/recomendaciones/juego',
-            templateUrl: '/templates/recommendations.game.html',
-            controller: 'recommendationsCtrl',
-            ncyBreadcrumb: {
-                label: 'Juego',
-                parent: 'recomendaciones'
+                label: 'Linea Jurisprudencial'
             }
         }
     ).state(
@@ -187,27 +76,6 @@ angular
             controller: 'toolBoxCtrl',
             ncyBreadcrumb: {
                 label: 'Caja de Herramientas'
-            }
-        }
-    ).state(
-        'manejoEstres',
-        {
-            url: '/manejoEstres',
-            templateUrl: '/templates/stressManagement.html', 
-            controller: 'stressManagementCtrl',
-            ncyBreadcrumb: {
-                label: 'Manejo del Estres'
-            }
-        }
-    ).state(
-        'manejoEstres/juego',
-        {
-            url: '/manejoEstres/juego',
-            templateUrl: '/templates/stressManagement.game.html', 
-            controller: 'stressManagementCtrl',
-            ncyBreadcrumb: {
-                label: 'Juego',
-                parent: 'manejoEstres'
             }
         }
     ).state(
