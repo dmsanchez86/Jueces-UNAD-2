@@ -1,6 +1,6 @@
 /* use strict */
 
-var urlBack = 'http://ejrlb.demostracionenlinea.com/servicios/v1/';
+var urlBack = 'http://ejrlb2.demostracionenlinea.com/servicios/v1/';
 
 /**
 * @ngdoc overview
