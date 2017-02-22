@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Jueces</title>
+    <title>Jueces 2</title>
 
     <!-- Humans -->
     <link type="text/plain" rel="author" href="humans.txt"/>
@@ -42,37 +42,6 @@
 
     <!-- Custom Theme Style -->
     <link href="src/css/main.css" rel="stylesheet">
-
-    <style>
-        /* change player background color */
-        #myAudio {
-            background-color: #9FD6BA;
-        }
-
-        .no-authorized{ 
-            background-image: -webkit-radial-gradient(center, #df8d18,#9c5d05);
-            background-image: -moz-radial-gradient(center, #df8d18,#9c5d05);
-            background-image: -ms-radial-gradient(center, #df8d18,#9c5d05);
-            background-image: -o-radial-gradient(center, #df8d18,#9c5d05);
-            background-image: radial-gradient(center, #df8d18,#9c5d05);
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -o-flex;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-        }
-        .no-authorized:before{
-            position: absolute;
-            content:  '¡No Autorizado!';
-            color:  white;
-            font-size:  6vw;
-            text-shadow: 0 0 4px rgba(0,0,0,.5);
-            height: 0vh;
-        }
-        .no-authorized header, .no-authorized .bg-terms, .loader{ display: none; }
-    </style>
   </head>
   <body ng-controller="mainCtrl" ng-class="{ 'no-authorized': !validateSessionState }">
     <!-- loader -->
@@ -112,11 +81,11 @@
     <!-- Controllers -->
     <script src="src/js/controllers/mainCtrl.js"></script>
     <script src="src/js/controllers/homeCtrl.js"></script>
-    <script src="src/js/controllers/recommendationsCtrl.js"></script>
-    <script src="src/js/controllers/stressManagementCtrl.js"></script>
     <script src="src/js/controllers/termsCtrl.js"></script>
     <script src="src/js/controllers/toolBoxCtrl.js"></script>
-    <script src="src/js/controllers/simulationCtrl.js"></script>
+    <script src="src/js/controllers/processMapCtrl.js"></script>
+    <script src="src/js/controllers/lineJCtrl.js"></script>
+    <script src="src/js/controllers/examplesCtrl.js"></script>
     <script src="src/js/controllers/logoutCtrl.js"></script>
 
     <!-- Filters -->
