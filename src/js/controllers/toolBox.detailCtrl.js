@@ -2,15 +2,15 @@
 
 /**
 * @ngdoc controller
-* @name judgesApp.controller:Caja-Herramientas
+* @name judgesApp.controller:Detalle-Herramienta
 * @description
 * 
 * ---
 * Controlador encargado de la caja de herramientas
 *
 * ---
-* - **Ruta del Recurso: ./dist/src/js/controllers/toolBoxCtrl.js** `// minificado`
-* - **Ruta del Recurso: ./src/src/js/controllers/toolBoxCtrl.js** `// recurso`
+* - **Ruta del Recurso: ./dist/src/js/controllers/toolBox.detailCtrl.js** `// minificado`
+* - **Ruta del Recurso: ./src/src/js/controllers/toolBox.detailCtrl.js** `// recurso`
 * ---
 *
 *
@@ -24,17 +24,17 @@
 angular
   .module('judgesApp')
   .controller(
-		'toolBoxCtrl',
+		'toolBox.detailCtrl',
 		function($scope, $stateParams, $window, $http, API, $sce){
 			// variable que controlara cuando mostrar el menu
 			$scope.$parent.acceptTerms = true;
-			$scope.$parent.background = 'bg-box';
+			$scope.$parent.background = 'bg-simulation-02';
 
 			// variable que guarda los tipos
 			$scope.types = [];
 
 			// variable que guarda las herramientas
-			$scope.toolsBox = [];
+			$scope.toolsBoxDetail = [];
 
 			// variable que me guarda la informacion de la herramienta seleccionada
 			$scope.activeTool = {};
@@ -42,36 +42,48 @@ angular
 			// variable que guardara la informacion de los casos
 			$scope.cases = [];
 
+            $scope.stateContent = false;
+            $scope.statePopup = false;
+
+            $scope.selectItem = {};
+
 			// consultamos las cajas de herramienta
 			API.call(
-				'dicente/herramientaslinea?tipo=herramienta',
+				'dicente/documentoherramienta?id='+ $stateParams.id,
 				'GET',
 				{},
 				function(response){
 					console.log(response);
 					if(response.status == "success"){
-						$scope.toolsBox = response.data;
+						$scope.toolsBoxDetail = response.data;
 
-						// recorremos las herramientas
-						angular.forEach($scope.toolsBox, function(el, i){
-							// cortamos la url
-							$scope.toolsBox[i].enlace = $scope.toolsBox[i].enlace.split('ejrlb.demostracionenlinea.com')[1];
+                        // dependiendo de la referencia se muestra lo indicado
+                        if(typeof $scope.toolsBoxDetail == 'object' || typeof $scope.toolsBoxDetail == 'array'){
+                            $scope.stateContent = $scope.toolsBoxDetail.length == 0 ? false : true;
+                            $scope.statePopup = false;
+                        }else{
+                            $scope.stateContent = false;
+                            $scope.statePopup = true;
 
-							// organizamos los documentos
-							$scope.toolsBox[i].enlace = $sce.trustAsResourceUrl($scope.toolsBox[i].enlace);
-						});
+                            $scope.selectItem.enlace = response.data;
+                            $scope.selectItem.enlace = $sce.trustAsResourceUrl( $scope.selectItem.enlace );
+
+                            setTimeout(function(){
+				                $("#myModal").modal();
+                            }, 500);
+                        }
 
 					}else{
 						$.notify('No se encontro informacion');
 					}
 				});
 
-			// función que permite ver una herramienta
-			$scope.seeTool = function(tool){
-				$scope.activeTool = tool;
-
-				$("#myModal").modal();
+			// función que permite ver los ejemplos en cada tab
+			$scope.seeExample = function(_case, i, $event){
+                $('.tab-content > div').removeClass('active');
+                $('#itemExample' + (i + 1)).addClass('active');
 			}
+
 			$scope.seeCases = function(){
 				// consultamos los casos
 				API.call(
