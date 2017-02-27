@@ -1,0 +1,50 @@
+<div class="container" ng-if="stateContent">
+	<!-- Nav tabs -->
+	<div class="content-tabs-vertical">
+        <div class="col-xs-4">
+            <ul class="nav nav-tabs tabs-left">
+                <li ng-repeat="(key, itemExample) in toolsBoxDetail" ng-class="{ 'active': key == 0 }">
+                	<a style="cursor: pointer;" ng-click="seeExample(itemExample, key, $event)" data-toggle="tab">
+                	{{ key + 1 }} <span> {{ itemExample.referencia }}</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-8">
+            <!-- Tab panes -->
+            <div class="tab-content" style="min-height: 330px;min-width: 454px;">
+                <div class="tab-pane" id="itemExample{{ key + 1 }}" ng-repeat="(key, itemExample) in toolsBoxDetail" ng-class="{ 'active': key == 0 }">
+					<h2>{{ itemExample.informacion.nombre }}</h2>
+					<p class="ng-binding" style="min-height: 100px;">
+						{{ itemExample.informacion.descripcion }}    
+					</p>             
+				</div>
+            </div>
+        </div>
+	</div>
+	<!-- End Nav tabs -->
+
+	<div class="character">
+		<img src="src/images/pj-simulacion-02.png" alt="Simulación">
+	</div>
+</div>
+
+<div class="modal fade" id="myModal" ng-if="statePopup">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<!--<button type="button" class="close" data-dismiss="modal">×</button>-->
+			</div>
+			<div class="modal-body">
+				<div class="panel ng-scope">
+					<div class="col-sm-6">
+						<div class="btn-icon btn-download">
+                            <a href="{{ selectItem.enlace }}" class="" title="Descargar Herramienta" download=""><span></span> Descargar</a>
+                        </div>
+					</div>
+					<iframe height="400" style="width: 100%;" frameborder="0" allowfullscreen="" ng-src="{{ selectItem.enlace }}"></iframe>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
