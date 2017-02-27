@@ -1,26 +1,19 @@
 <div class="bg-move"></div>
-<div class="container">
+<div class="container home">
 
     <div class="col-sm-12">
     	<div class="cloud bg-white pull-right">
-    		<h1>Bienvenido al recurso de Práctica de Evaluación Oral.</h1>
         	<p>
-        		En este recurso usted podrá simular la Evaluación Oral de los módulos que componen la mesa de estudio. Su objetivo es permitirle llevar a cabo una práctica o simulación y, por ende, afianzar los conocimientos y habilidades buscadas con el estudio de los contenidos.
+        		Esta herramienta te acompañará paso a paso en la elaboración de un ensayo de investigación jurídica que apunta a la reconstrucción de una línea jurisprudencial y a su presentación en un artículo académico corto de calidad. Estos pasos consecutivos te proveerán, ejercicios, ejemplos y otras cosas herramientas que te ayudarán en la investigación y escritura de tu trabajo de grado. Como sabes, ese trabajo de grado consiste en la elaboración, en un ensayo argumentativo, de una "línea jurosprudencial".
         	</p>
-        	<p>
-        		Para esta práctica, usted contará con un espacio de simulación con casos similares a los de la evaluación oral, videos guía, herramientas de y guías de análisis del resultado de su práctica. También encontrará recomendaciones para la preparación del caso y su presentación.
-        	</p>
-        	<p>
-        		Se ofrece una caja de herramientas con el protocolo de presentación de la evaluación oral, la rúbrica de evaluación y casos ejemplificantes. Finalmente, usted cuenta con herramientas y consejos para la prevención y manejo del estrés.
-        	</p>
-        	<p>
-        		Todo esto permitirá que usted tenga éxito en su proceso de aprendizaje y como consecuencia logre excelentes resultados en su evaluación oral oficial.
-        	</p>
+            <div class="btn-icon btn-check" ng-if="dataPDF.ruta">
+                <a href="{{ dataPDf.ruta }}" target="_blank"><span></span> Ver Documento</a>
+            </div>
     	</div>
     </div>
 
     <div class="col-sm-12">
-    	<div class="character">
+    	<div class="character" ng-class="{ 'without-button': !dataPDF.ruta }">
     		<img src="src/images/pj-home.png" alt="Home" style="transform: rotatey(180deg)">
     	</div>
     </div>
