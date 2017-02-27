@@ -14,6 +14,8 @@
  * Se utiliza el modulo ui.router para el manejo de las url por estados y asi poder hacerlo compatible con el breadcrumb, si se ingresa una url que no este registrada se redirecciona a la **raiz**
  */
 
+var folder = '/judges2';
+
 angular
   .module('judgesApp')
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -22,7 +24,7 @@ angular
         'terminosYCondiciones',
         {
             url: '/terminosYCondiciones/:id/:token',
-            templateUrl: '/templates/terms.html',
+            templateUrl: folder + '/templates/terms.html',
             controller: 'termsCtrl',
             ncyBreadcrumb: {
                 label: 'Terminos y Condiciones'
@@ -32,7 +34,7 @@ angular
         'home',
         {
             url: '/home',
-            templateUrl: '/templates/home.html',
+            templateUrl: folder + '/templates/home.html',
             controller: 'homeCtrl',
             ncyBreadcrumb: {
                 label: 'Home'
@@ -42,7 +44,7 @@ angular
         'mapaProceso',
         {
             url: '/mapaProceso',
-            templateUrl: '/templates/processMap.html',
+            templateUrl: folder + '/templates/processMap.html',
             controller: 'processMapCtrl',
             ncyBreadcrumb: {
                 label: 'Mapa de Proceso'
@@ -52,37 +54,67 @@ angular
         'ejemplos',
         {
             url: '/ejemplos',
-            templateUrl: '/templates/examples.html',
+            templateUrl: folder + '/templates/examples.html',
             controller: 'examplesCtrl',
             ncyBreadcrumb: {
                 label: 'Ejemplos'
             }
         }
     ).state(
+        'detalle',
+        {
+            url: '/detalle/:id',
+            templateUrl: folder + '/templates/examples.detail.html',
+            controller: 'examples.detailCtrl',
+            ncyBreadcrumb: {
+                label: 'Detalle'
+            }
+        }
+    ).state(
         'lineaJurisprudencial',
         {
             url: '/lineaJurisprudencial',
-            templateUrl: '/templates/lineJ.html',
+            templateUrl: folder + '/templates/lineJ.html',
             controller: 'lineJCtrl',
             ncyBreadcrumb: {
                 label: 'Linea Jurisprudencial'
             }
         }
     ).state(
+        'detalleLinea',
+        {
+            url: '/detalleLinea/:id',
+            templateUrl: folder + '/templates/lineJ.detail.html',
+            controller: 'lineJ.detailCtrl',
+            ncyBreadcrumb: {
+                label: 'Detalle Linea Jurisprudencial'
+            }
+        }
+    ).state(
         'cajaHerramientas',
         {
             url: '/cajaHerramientas',
-            templateUrl: '/templates/toolBox.html', 
+            templateUrl: folder + '/templates/toolBox.html', 
             controller: 'toolBoxCtrl',
             ncyBreadcrumb: {
                 label: 'Caja de Herramientas'
             }
         }
     ).state(
+        'detalleHerramienta',
+        {
+            url: '/detalleHerramienta/:id',
+            templateUrl: folder + '/templates/toolBox.detail.html', 
+            controller: 'toolBox.detailCtrl',
+            ncyBreadcrumb: {
+                label: 'Detalle Herramienta'
+            }
+        }
+    ).state(
         'salir',
         {
             url: '/logout',
-            templateUrl: '/templates/logout.html', 
+            templateUrl: folder + '/templates/logout.html', 
             controller: 'logoutCtrl',
             ncyBreadcrumb: {
                 label: 'Cerrando Sesión'
