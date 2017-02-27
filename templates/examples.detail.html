@@ -1,0 +1,72 @@
+<div class="container not-padding">
+	<!-- Nav tabs -->
+	<div class="content-tabs-vertical">
+        <div class="col-xs-4">
+            <ul class="nav nav-tabs tabs-left">
+                <li ng-repeat="(key, itemProgram) in dataDetail" ng-class="{ 'active': key == 0 }">
+                	<a style="cursor: pointer;" ng-click="seePDF(itemProgram, key, $event)" data-toggle="tab">
+                	{{ key + 1 }} <span> {{ itemProgram.referencia }}</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-8">
+            <!-- Tab panes -->
+            <div class="tab-content" style="min-height: 83vh;min-width: 454px;">
+                <div class="tab-pane" id="itemProgram{{ key + 1 }}" ng-repeat="(key, itemProgram) in dataDetail" ng-class="{ 'active': key == 0 }">
+					<h2>{{ itemProgram.informacion.titulo }}</h2>
+					<p class="ng-binding" style="min-height: 100px;">
+						{{ itemProgram.informacion.descripcion }}    
+					</p>
+					<div class="btn-icon btn-check">
+						<a style="cursor: pointer" ng-click="selectPDFToSee(itemProgram)">
+							<span></span> 
+							{{ itemProgram.informacion.nombre }}
+						</a>
+					</div>             
+				</div>
+            </div>
+        </div>
+	</div>
+	<!-- End Nav tabs -->
+
+	<div class="character">
+		<img src="src/images/pj-simulacion-02.png" alt="Simulación">
+	</div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+			</div>
+			<div class="modal-body">
+				<div class="panel ng-scope">
+					<div class="col-sm-6">
+						<div class="btn-icon btn-download"><a href="{{ selectItem.informacion.enlace }}" class="" title="Descargar Herramienta" download=""><span></span> Descargar</a></div>
+					</div>
+					<iframe height="400" style="width: 100%;" frameborder="0" allowfullscreen="" ng-src="{{ selectItem.informacion.enlace }}"></iframe>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<!--<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="panel ng-scope">
+					<div class="col-sm-6">
+						<div class="btn-icon btn-download"><a href="{{ activeTool.enlace }}" class="" title="Descargar Herramienta" download><span></span> Descargar</a></div>
+					</div>
+					<iframe height="400" style="width: 100%;" ng-src="{{ activeTool.enlace }}" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>-->
+
