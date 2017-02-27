@@ -2,15 +2,15 @@
 
 /**
 * @ngdoc controller
-* @name judgesApp.controller:Linea-Jurisprudencial
+* @name judgesApp.controller:Linea-Jurisprudencial-Detalle
 * @description
 * 
 * ---
 * Controlador encargado del mapa de procesos.
 *
 * ---
-* - **Ruta del Recurso: ./dist/src/js/controllers/lineJCtrl.js** `// minificado`
-* - **Ruta del Recurso: ./src/src/js/controllers/lineJCtrl.js** `// recurso`
+* - **Ruta del Recurso: ./dist/src/js/controllers/lineJ.detailCtrl.js** `// minificado`
+* - **Ruta del Recurso: ./src/src/js/controllers/lineJ.detailCtrl.js** `// recurso`
 * ---
 *
 *
@@ -28,17 +28,17 @@
 angular
   .module('judgesApp')
   .controller(
-		'lineJCtrl',
+		'lineJ.detailCtrl',
 		function($scope, $stateParams, $window, $http, API, $sce){
 			// variable que controlara cuando mostrar el menu
 			$scope.$parent.acceptTerms = true;
-			$scope.$parent.background = 'bg-box';
+			$scope.$parent.background = 'bg-simulation';
 
 			// variable que guarda los tipos
 			$scope.types = [];
 
 			// variable que guarda las herramientas
-			$scope.dataLine = [];
+			$scope.dataTomo = [];
 
 			// variable que me guarda la informacion de la herramienta seleccionada
 			$scope.activeTool = {};
@@ -46,29 +46,51 @@ angular
 			// variable que guardara la informacion de los casos
 			$scope.cases = [];
 
+			// objeto que tendra el carousel
+			$scope.dataOwl = null;
+
+			// creamos el carousel
+			setTimeout(function(){
+				$scope.dataOwl = $('.owl-carousel');
+
+				$scope.dataOwl.owlCarousel({
+				    loop:false,
+				    items:1,
+				    autoHeight: true,
+				    autoplay: false,
+				    nav: true,
+				    navText: ['<','>']
+				});
+			},500);
+
 			// consultamos las cajas de herramienta
 			API.call(
-				'dicente/lineajurisprudencial?tipo=jurisprudencial',
+				'dicente/textostomo?id=' + $stateParams.id,
 				'GET',
 				{},
 				function(response){
 					console.log(response);
 					if(response.status == "success"){
-						$scope.dataLine = response.data;
+						$scope.dataTomo = response.data;
 
 						// recorremos las herramientas
-						angular.forEach($scope.dataLine, function(el, i){
+						/*angular.forEach($scope.dataTomo, function(el, i){
 							// cortamos la url
-							$scope.dataLine[i].enlace = $scope.dataLine[i].enlace.split('ejrlb.demostracionenlinea.com')[1];
+							$scope.dataTomo[i].enlace = $scope.dataTomo[i].enlace.split('ejrlb.demostracionenlinea.com')[1];
 
 							// organizamos los documentos
-							$scope.dataLine[i].enlace = $sce.trustAsResourceUrl($scope.dataLine[i].enlace);
-						});
+							$scope.dataTomo[i].enlace = $sce.trustAsResourceUrl($scope.dataTomo[i].enlace);
+						});*/
 
 					}else{
 						$.notify('No se encontro informacion');
 					}
 				});
+
+			/*****
+			Para generer el pdf
+			url: dicente/pdfformulario => Array()
+			*******/
 
 			// función que permite ver una herramienta
 			$scope.seeTool = function(tool){
@@ -102,6 +124,15 @@ angular
 							$.notify('No se encontraron casos');
 						}
 					});
+			}
+
+			// eventos del slider
+			$scope.changeView = function(option){
+				if(option == 'next'){
+					$scope.dataOwl.trigger('next.owl.carousel');
+				}else{
+					$scope.dataOwl.trigger('prev.owl.carousel');
+				}
 			}
 
 		}
