@@ -78,7 +78,7 @@ body {
 
 .btn-icon {
 	background: #4C000B;
-	padding: 12px 15px 20px 15px;
+	padding: 12px 15px 12px 15px;
 	font-size: 14px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -98,8 +98,9 @@ body {
 .btn-icon a {
 	border-bottom: 2px solid #fff;
 	color: #fff;
-	padding-bottom: 8px;
 	margin-left: 10px;
+    font-size: 1.15rem;
+    display: block;
 }
 
 .btn-icon a:hover {
@@ -448,6 +449,21 @@ body {
 .bg-home .character {
     margin: -124px 0px 0px 117px;
 }
+.bg-home .character.without-button {
+	margin-top: 71px;
+}
+
+.home .btn-icon {
+    margin: 2rem auto 0;
+    max-width: 100%;
+    width: 226px;
+    padding-bottom: 2rem;
+}
+.home.lineJ .btn-icon {
+	padding-bottom: 0;
+    height: 5rem;
+    margin-bottom: 2rem;
+}
 
 /* Caja de Herramientas */
 .menu-box {
@@ -503,6 +519,119 @@ body {
 	-moz-transform: rotate(8deg);
 	-o-transform: rotate(8deg);
 }
+.menu-box li:nth-child(5) a {
+	color: white;
+	padding-left: 3.5rem;
+	padding-top: 2rem;
+	-webkit-transform: rotate(-9deg);
+	-moz-transform: rotate(-9deg);
+	-o-transform: rotate(-9deg);
+}
+
+.tool {
+    overflow: visible;
+    position: relative;
+}
+.tool:nth-child(odd) a:before,
+.tool:nth-child(odd) a:after{
+	left: 107%;
+}
+.tool:nth-child(odd) a:after{
+	border-width: 10px 15px 10px 0;
+	border-color: transparent #4C000B transparent transparent;
+	left: 100%;
+}
+.tool:nth-child(even) a:before,
+.tool:nth-child(even) a:after{
+	right: 107%;
+}
+.tool:nth-child(even) a:after{
+	border-width: 10px 0 10px 15px;
+	border-color: transparent transparent transparent #4C000B;
+	right: 100%;
+}
+.tool a{
+	position: relative;
+}
+.tool a:hover:before,
+.tool a:hover:after{
+	opacity: 1;
+}
+
+.tool a:before,
+.tool a:after{
+	position: absolute;
+	opacity: 0;
+	color: white;
+	transform: rotate(0);
+	content: '';
+	transition: opacity 150ms ease;
+}
+.tool a:after{
+	border-style: solid;
+    top: 0;
+    bottom: 0;
+    max-height: 15px;
+    margin: auto;
+}
+.tool a:before{
+	background: #4c000b;
+	content: attr(description);
+	min-width: 120px;
+	padding: .5rem .75rem;
+	font-size: 1.15rem;
+	border-radius: 3px;
+	top: 2%;
+	min-height: 4rem;
+}
+
+.tool a:before{}
+.tool a:after{}
+
+.contentMap{
+	
+}
+.contentMap ul{
+	margin-left: 2rem;
+	margin-bottom: 0;
+	z-index: 2;
+}
+.contentMap ul li{
+	display: inline-block;
+	vertical-align: top;
+	background: #4C000B;
+	padding: 1rem 2rem 2rem;
+}
+.contentMap ul li.active{
+	padding: 1rem 2rem 3.5rem;
+}
+.contentMap ul li.disabled{
+	cursor: not-allowed;
+	pointer-events: none;
+	z-index: -1;
+}
+.contentMap ul li a{
+	color: white;
+	padding-bottom: 1rem;
+	border-bottom: solid 2px white;
+}
+.contentMap ul li a:hover{
+	text-decoration: none;
+}
+.contentMap .contentInfo{
+	max-height: 500px;
+	overflow: auto;
+	border: 15px solid #ac8c6a;
+	margin-top: -1.5rem;
+	z-index: 1;
+}
+.contentMap iframe,
+.contentMap img{
+	width: 100%;
+}
+.contentMap iframe{
+	min-height: 500px;
+}
 
 .cloud {
 	transition: all 150ms ease;
@@ -550,6 +679,36 @@ body {
 /* character bg */
 .character {
     position: absolute;
+}
+
+.item{
+
+}
+.item.item-tomo{
+	background: white;
+	border-radius: 3px;
+	padding: 1rem 2rem;
+}
+
+.btn-icon.btn-check.pull-right span{
+	float: right;
+    margin: -25px -34px 0px -34px;
+}
+
+.lineJ{
+	
+}
+.lineJ .owl-dots,
+.lineJ .owl-nav{
+	display: none !important;
+}
+
+.contentButton {
+    position: absolute;
+    bottom: -4rem;
+    left: 0;
+    right: 0;
+    z-index: 3;
 }
 
 /* Modal */
@@ -678,6 +837,9 @@ body {
 .main-content.bg-simulation-02 > .container{
     padding-top: 150px;
 }
+.main-content.bg-simulation-02 > .container.not-padding{
+	padding-top: 4rem;
+}
 
 /* Términos de condiciones */
 .containerTextTerms{
@@ -740,6 +902,11 @@ body {
 .bg-box .cloud.bg-white:before {
 	border-color: transparent transparent rgba(234, 234, 233, 0.76);
 	margin-top: -88px;
+}
+
+
+.btn-icon.btn-download {
+    margin-top: 2rem;
 }
 
 @keyframes meditation {
@@ -1041,7 +1208,7 @@ body {
 .content-tabs-vertical .nav-tabs > li {	
     background: url("../images/main/btn-case.png") no-repeat;
     height: 79px;
-    margin-bottom: 10px;
+    margin-bottom: .15rem;
 	min-width: 210px;
 }
 
