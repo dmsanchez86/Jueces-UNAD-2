@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1 col-xs-12">
+			<div class="contentMap">
+				<ul>
+					<li ng-click="changeView('infografico')" class="active">
+						<a href="#/mapaProceso#">Ver Infográfico</a>
+					</li>
+					<li ng-click="changeView('animacion')" class="disabled">
+						<a href="#/mapaProceso#">Ver Animacion</a>
+					</li>
+				</ul>
+				<div class="contentInfo" ng-if="view">
+					<img src="src/images/infografico.jpg" class="responsive-img">
+				</div>
+				<div class="contentInfo" ng-if="!view">
+					<iframe src="https://www.youtube.com/embed/uwTtC0phJPs" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
