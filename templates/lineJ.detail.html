@@ -1,0 +1,48 @@
+<div class="bg-move"></div>
+<div class="container home lineJ" style="padding-top: 4rem">
+
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="owl-carousel">
+				<div class="item item-tomo" ng-repeat="tomo in dataTomo">
+					<h4>{{ tomo.nombre }}</h4>
+					<p>
+						{{ tomo.descripcion }}
+					</p>
+					<div class="btn-icon btn-check" ng-if="!tomo.enlace">
+		                <a href="{{ tomo.enlace }}" target="_blank"><span></span> Ver PDF</a>
+		            </div>
+				</div>
+			</div>
+			<div class="contentButton">
+				<div class="btn-icon btn-check pull-left">
+	                <a style="cursor: pointer" ng-click="changeView('last')" target="_blank"><span></span> Anterior</a>
+	            </div>
+	            <div class="btn-icon btn-check pull-right">
+	                <a style="cursor: pointer" ng-click="changeView('next')" target="_blank">Siguiente <span></span></a>
+	            </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-10">&nbsp;</div>
+		<div class="col-sm-2">
+			<div class="character">
+				<!--<img src="src/images/pj-herramientas-01.png" alt="Caja de herramientas">-->
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script>
+    // Move background 
+    $(document).ready(function(){
+        $('.main-content').mousemove(function(e){     
+            var x = -(e.pageX + this.offsetLeft) / 20;     
+            var y = 0;     
+            $(this).find('.bg-move').css('background-position', x + 'px ' + y + 'px');    
+        }); 
+    });
+</script>
